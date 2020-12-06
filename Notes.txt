@@ -1,0 +1,66 @@
+Create car class (inherit from Turtle):
+    random colour and vertical position at right edge of screen
+    all the same size
+    all travel at the same speed
+    option: prevent overlap?
+    option: cars in lanes rather than totally random?
+    option: different speeds?
+    option: car sprite?
+    methods:
+        move car
+            if car past end of road
+                then destroy
+        detect collision with turtle
+
+Create player class (inherit from Turtle):
+    set position to bottom of screen, centered horizontally
+    set size, speed, colour
+    methods:
+        move up
+
+Main Program:
+=============
+Create screen:
+    black background
+    animation off
+    option: white road edge markings?
+    option: white lane markings?
+
+listen for "Up" key press, move player up
+
+Functions:
+    create new car with given difficulty
+        use difficulty as multiplier for car speed
+        append to list of cars
+        option: if using lanes, cars could have different speeds
+    player decision:
+        uses mouse coordinates from onscreenclick()
+        to decide whether to start a new game or end the game
+
+Game Initialize:
+    set difficulty to level 1
+Game Loop:
+    create some cars and get them moving (according to difficulty)
+    create player
+    display "GO!"
+    Play Loop:
+        update screen
+        sleep
+        move player when "Up" key pressed
+        if player reaches opposite side of road
+            then display "You Win!"
+            increase difficulty (faster cars / more cars)
+            restart Game Loop
+        move cars and check for collision with turtle
+        if collision
+            then "You Lost!"
+            end Play Loop
+        create new car(s) at random times
+    display "Another Game?"
+        listen for "n" key press, end Game Loop
+        listen for "y" key press, reset difficulty and restart Game Loop
+        option:
+            Maybe display tick / cross icons
+            use onscreenclick to get player decision
+
+Exit on click
