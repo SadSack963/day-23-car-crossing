@@ -8,7 +8,7 @@ MOVE_INCREMENT = 10
 
 
 class CarManager(Turtle):
-    def __init__(self):
+    def __init__(self, level):
         super(CarManager, self).__init__()
         self.pu()
         self.shape("square")
@@ -19,9 +19,7 @@ class CarManager(Turtle):
         self.color(choice(COLORS))
         self.setx(320)
         self.sety(randint(-250, 250))
+        self.move_distance = STARTING_MOVE_DISTANCE + int(MOVE_INCREMENT * (level - 1) / 2)
 
     def move(self):
-        self.fd(STARTING_MOVE_DISTANCE)
-
-    def detect_turtle(self, target):
-        pass
+        self.fd(self.move_distance)

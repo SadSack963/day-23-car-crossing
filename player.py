@@ -15,10 +15,13 @@ class Player(Turtle):
         self.win = False
 
     def move_up(self):
+        """Move the player up and check for the finish line"""
         if self.ycor() < FINISH_LINE_Y:
             self.fd(MOVE_DISTANCE)
         else:
             self.win = True
 
-
-
+    def start(self):
+        """Reset the player to the starting position"""
+        self.setposition(STARTING_POSITION)
+        self.win = False
