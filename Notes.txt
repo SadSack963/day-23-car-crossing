@@ -14,6 +14,7 @@ Create car class (inherit from Turtle):
 
 Create player class (inherit from Turtle):
     set position to bottom of screen, centered horizontally
+    set heading up
     set size, speed, colour
     methods:
         move up
