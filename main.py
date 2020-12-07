@@ -18,9 +18,22 @@ player = Player()
 screen.onkeypress(player.move_up, "Up")
 
 game_is_on = True
+counter = 0
+cars = []
 while game_is_on:
     time.sleep(0.1)
     screen.update()
+    counter += 1
+    if counter == 6:
+        # Create Car
+        cars.append(CarManager())
+        counter = 0
+    for car in cars:
+        car.move()
+        # Detect collision with player
+        if -20 <= car.xcor() <= 20 and -20 < player.ycor() - car.ycor() < 20:
+            game_is_on = False
+            messenger.display_message("You Lost!")
     if player.win:
         game_is_on = False
         messenger.display_message("You Win!")
